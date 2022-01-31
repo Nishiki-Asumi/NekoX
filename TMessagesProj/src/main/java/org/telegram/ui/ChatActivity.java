@@ -11433,9 +11433,8 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                     replyObjectText = Emoji.replaceEmoji(mess, replyObjectTextView.getPaint().getFontMetricsInt(), AndroidUtilities.dp(14), false);
                 }
                 if (replyObjectText != null) {
-                    if (replyObjectText instanceof Spannable && sourceText != null) {
-                        MediaDataController.addTextStyleRuns(messageObjectToReply.messageOwner.entities, sourceText, (Spannable) replyObjectText);
-                    }
+                    if (replyObjectText instanceof Spannable)
+                        MediaDataController.addTextStyleRuns(messageObjectToReply, messageObjectToReply.caption != null ? messageObjectToReply.caption : messageObjectToReply.messageText, (Spannable) replyObjectText);
 
                     replyObjectTextView.setText(AnimatedEmojiSpan.cloneSpans(replyObjectText));
                 }

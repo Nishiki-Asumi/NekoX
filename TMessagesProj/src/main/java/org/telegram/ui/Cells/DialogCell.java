@@ -1440,6 +1440,7 @@ public class DialogCell extends BaseCell {
                                                 MediaDataController.addTextStyleRuns(message.messageOwner.entities, message.caption, msgBuilder, TextStyleSpan.FLAG_STYLE_SPOILER | TextStyleSpan.FLAG_STYLE_STRIKE);
                                             MediaDataController.addAnimatedEmojiSpans(message.messageOwner.entities, msgBuilder, currentMessagePaint == null ? null : currentMessagePaint.getFontMetricsInt());
                                         }
+                                        MediaDataController.addTextStyleRuns(message, message.caption, msgBuilder, TextStyleSpan.FLAG_STYLE_SPOILER);
                                         messageString = new SpannableStringBuilder(emoji).append(msgBuilder);
                                     }
                                 } else if (thumbsCount > 1) {

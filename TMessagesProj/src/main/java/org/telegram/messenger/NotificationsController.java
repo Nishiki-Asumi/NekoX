@@ -83,6 +83,7 @@ import java.util.function.Consumer;
 
 import tw.nekomimi.nekogram.NekoXConfig;
 import tw.nekomimi.nekogram.NekoConfig;
+import tw.nekomimi.nekogram.helpers.MessageHelper;
 
 public class NotificationsController extends BaseController {
 
@@ -2051,9 +2052,10 @@ public class NotificationsController extends BaseController {
         StringBuilder stringBuilder = new StringBuilder(text);
         if (NekoConfig.showSpoilersDirectly.Bool())
             return stringBuilder.toString();
-        for (int i = 0; i < messageObject.messageOwner.entities.size(); i++) {
-            if (messageObject.messageOwner.entities.get(i) instanceof TLRPC.TL_messageEntitySpoiler) {
-                TLRPC.TL_messageEntitySpoiler spoiler = (TLRPC.TL_messageEntitySpoiler) messageObject.messageOwner.entities.get(i);
+        var entities = MessageHelper.checkBlockedUserEntities(messageObject);
+        for (int i = 0; i < entities.size(); i++) {
+            if (entities.get(i) instanceof TLRPC.TL_messageEntitySpoiler) {
+                TLRPC.TL_messageEntitySpoiler spoiler = (TLRPC.TL_messageEntitySpoiler) entities.get(i);
                 for (int j = 0; j < spoiler.length; j++) {
                     stringBuilder.setCharAt(spoiler.offset + j, spoilerChars[j % spoilerChars.length]);
                 }

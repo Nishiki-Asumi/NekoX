@@ -76,6 +76,7 @@ import java.util.regex.Pattern;
 import cn.hutool.core.util.StrUtil;
 import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.NekoXConfig;
+import tw.nekomimi.nekogram.helpers.MessageHelper;
 
 public class MessageObject {
 
@@ -4926,7 +4927,7 @@ public class MessageObject {
             } else {
                 entities = messageOwner.entities;
             }
-            return addEntitiesToText(text, entities, isOutOwner(), true, photoViewer, useManualParse);
+            return addEntitiesToText(text, MessageHelper.checkBlockedUserEntities(this), isOutOwner(), true, photoViewer, useManualParse);
         }
     }
 

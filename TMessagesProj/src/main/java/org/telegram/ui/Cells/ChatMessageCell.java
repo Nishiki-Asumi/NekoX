@@ -7823,31 +7823,6 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 currentNameStatusDrawable.play();
             }
         }
-        needHide = needHideMessage();
-        if (needHide) {
-            totalHeight = 0;
-            drawTime = false;
-            needNewVisiblePart = false;
-            needReplyImage = false;
-            drawCommentButton = false;
-            drawForwardedName = false;
-            drawInstantView = false;
-            drawBackground = false;
-            drawCommentNumber = false;
-            drawImageButton = false;
-            drawJoinChannelView = false;
-            drawJoinGroupView = false;
-            drawMediaCheckBox = false;
-            drawName = false;
-            drawNameLayout = false;
-            drawPhotoImage = false;
-            drawBackground = false;
-            isAvatarVisible = false;
-        }
-        if (transcribeButton != null) {
-            transcribeButton.setOpen(currentMessageObject.messageOwner != null && currentMessageObject.messageOwner.voiceTranscriptionOpen && currentMessageObject.messageOwner.voiceTranscriptionFinal && TranscribeButton.isVideoTranscriptionOpen(currentMessageObject), !messageIdChanged);
-            transcribeButton.setLoading(TranscribeButton.isTranscribing(currentMessageObject), !messageIdChanged);
-        }
         updateWaveform();
         updateButtonState(false, !messageIdChanged && !messageObject.cancelEditing, true);
 
@@ -12857,8 +12832,8 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                             stringFinalText = MessageObject.replaceAnimatedEmoji(stringFinalText, messageObject.replyMessageObject.messageOwner.entities, Theme.chat_replyTextPaint.getFontMetricsInt(), true);
                         }
                         stringFinalText = TextUtils.ellipsize(stringFinalText, Theme.chat_replyTextPaint, maxWidth, TextUtils.TruncateAt.END);
-                        if (stringFinalText instanceof Spannable && messageObject.replyMessageObject.messageOwner != null) {
-                            MediaDataController.addTextStyleRuns(messageObject.replyMessageObject.messageOwner.entities, messageObject.replyMessageObject.caption, (Spannable) stringFinalText);
+                        if (stringFinalText instanceof Spannable) {
+                            MediaDataController.addTextStyleRuns(messageObject.replyMessageObject, messageObject.replyMessageObject.caption, (Spannable) stringFinalText);
                         }
                     } else if (messageObject.replyMessageObject != null && messageObject.replyMessageObject.messageText != null && messageObject.replyMessageObject.messageText.length() > 0) {
                         String mess = messageObject.replyMessageObject.messageText.toString();
