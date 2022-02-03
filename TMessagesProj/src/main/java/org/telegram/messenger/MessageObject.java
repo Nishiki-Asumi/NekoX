@@ -6008,6 +6008,10 @@ public class MessageObject {
         return message.dialog_id;
     }
 
+    public boolean shouldBlockMessage() {
+        return NekoConfig.ignoreBlocked && MessagesController.getInstance(UserConfig.selectedAccount).blockePeers.indexOfKey(getFromChatId()) >= 0;
+    }
+
     public boolean isSending() {
         return messageOwner.send_state == MESSAGE_SEND_STATE_SENDING && messageOwner.id < 0;
     }

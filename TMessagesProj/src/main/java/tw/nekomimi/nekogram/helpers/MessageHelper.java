@@ -17,8 +17,6 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tw.nekomimi.nekogram.NekoConfig;
-
 public class MessageHelper extends BaseController {
 
     private static final MessageHelper[] Instance = new MessageHelper[UserConfig.MAX_ACCOUNT_COUNT];
@@ -28,7 +26,7 @@ public class MessageHelper extends BaseController {
     }
 
     public static ArrayList<TLRPC.MessageEntity> checkBlockedUserEntities(MessageObject messageObject) {
-        if (NekoConfig.ignoreBlocked.Bool() && MessagesController.getInstance(UserConfig.selectedAccount).blockePeers.indexOfKey(messageObject.getFromChatId()) >= 0) {
+        if (messageObject.shouldBlockMessage() && messageObject.messageOwner.message != null) {
             ArrayList<TLRPC.MessageEntity> entities = new ArrayList<>(messageObject.messageOwner.entities);
             var spoiler = new TLRPC.TL_messageEntitySpoiler();
             spoiler.offset = 0;

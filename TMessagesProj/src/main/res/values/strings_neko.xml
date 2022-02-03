@@ -149,4 +149,5 @@
     <string name="useOSMDroidMap">Use OSMDroid Map</string>
     <string name="useTelegramTranslateInChat">Use Telegram Translate UI in Chat</string>
     <string name="ProviderTelegramAPI">Telegram API</string>
+    <string name="BlockedUserIgnored">blocked</string>
 </resources>
