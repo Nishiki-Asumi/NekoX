@@ -120,18 +120,7 @@ public class NekoXConfig {
     }
 
     public static boolean isDeveloper() {
-        if (hasDeveloper != null)
-            return hasDeveloper;
-        hasDeveloper = false;
-        if (BuildVars.DEBUG_VERSION) hasDeveloper = true;
-        for (int acc : SharedConfig.activeAccounts) {
-            long myId = UserConfig.getInstance(acc).clientUserId;
-            if (ArrayUtil.contains(NekoXConfig.developers, myId)) {
-                hasDeveloper = true;
-                break;
-            }
-        }
-        return hasDeveloper;
+        return true;
     }
 
     public static String getOpenPGPAppName() {
