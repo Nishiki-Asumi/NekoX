@@ -321,6 +321,7 @@ jobs:
           key: gradle-${{ hashFiles('**/*.gradle') }}
       - name: Debug Build
         run: |
+          base64 --decode <<< "${{ secrets.KEYSTORE }}" > TMessagesProj/release.keystore
           export LOCAL_PROPERTIES="${{ secrets.LOCAL_PROPERTIES }}"
           export DEBUG_BUILD=true
           ./gradlew TMessagesProj:assemble${{ matrix.flavor }}
