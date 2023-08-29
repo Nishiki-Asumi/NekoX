@@ -5884,6 +5884,10 @@ public class MediaDataController extends BaseController {
         addTextStyleRuns(MessageHelper.checkBlockedUserEntities(message), messageText, text, allowedFlags);
     }
 
+    public static void addTextStyleRuns(ArrayList<TLRPC.MessageEntity> entities, CharSequence messageText, Spannable text) {
+        addTextStyleRuns(entities, messageText, text, -1);
+    }
+
     public static void addTextStyleRuns(ArrayList<TLRPC.MessageEntity> entities, CharSequence messageText, Spannable text, int allowedFlags) {
         for (TextStyleSpan prevSpan : text.getSpans(0, text.length(), TextStyleSpan.class))
             text.removeSpan(prevSpan);

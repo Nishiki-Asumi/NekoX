@@ -19,8 +19,6 @@ import java.util.regex.Pattern;
 
 public class MessageHelper extends BaseController {
 
-    private static final MessageHelper[] Instance = new MessageHelper[UserConfig.MAX_ACCOUNT_COUNT];
-
     public MessageHelper(int num) {
         super(num);
     }

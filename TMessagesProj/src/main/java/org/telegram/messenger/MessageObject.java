@@ -6009,7 +6009,7 @@ public class MessageObject {
     }
 
     public boolean shouldBlockMessage() {
-        return NekoConfig.ignoreBlocked && MessagesController.getInstance(UserConfig.selectedAccount).blockePeers.indexOfKey(getFromChatId()) >= 0;
+        return NekoConfig.ignoreBlocked.Bool() && MessagesController.getInstance(UserConfig.selectedAccount).blockePeers.indexOfKey(getFromChatId()) >= 0;
     }
 
     public boolean isSending() {
