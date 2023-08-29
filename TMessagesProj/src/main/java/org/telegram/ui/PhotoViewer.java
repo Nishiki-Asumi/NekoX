@@ -11766,6 +11766,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                 allowShare = !noforwardsOverride;
                 if (newMessageObject.isNewGif() && allowShare && !DialogObject.isEncryptedDialog(newMessageObject.getDialogId())) {
                     menuItem.showSubItem(gallery_menu_savegif);
+                    menuItem.showSubItem(gallery_menu_save);
                 }
                 if (newMessageObject.canDeleteMessage(parentChatActivity != null && parentChatActivity.isInScheduleMode(), null) && slideshowMessageId == 0) {
                     menuItem.showSubItem(gallery_menu_delete);
@@ -12298,6 +12299,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             if (currentAnimation != null) {
                 if (allowShare) {
                     menuItem.showSubItem(gallery_menu_savegif);
+                    menuItem.showSubItem(gallery_menu_save);
                 } else {
                     menuItem.hideSubItem(gallery_menu_savegif);
                 }
