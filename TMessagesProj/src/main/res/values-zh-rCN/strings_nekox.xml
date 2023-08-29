@@ -232,6 +232,7 @@
     <string name="UsePersiancalendar">使用伊朗历</string>
     <string name="UsePersiancalendarInfo">用太阳回历显示日期</string>
     <string name="DisplayPersianCalendarByLatin">以拉丁字母显示波斯日历</string>
+    <string name="showScanQrCodeOnPhotoView">在图片查看界面添加二维码扫描器</string>
     <string name="AddProxyWs">添加 WebSocket 中继</string>
     <string name="ProxyInfoWS">WebSocket 中继设置</string>
     <string name="WsPayload">负载</string>

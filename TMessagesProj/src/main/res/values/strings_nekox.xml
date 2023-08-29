@@ -229,6 +229,7 @@
     <string name="UsePersiancalendar">Use Persian calendar</string>
     <string name="UsePersiancalendarInfo">Display date with Solar Hijri calendar</string>
     <string name="DisplayPersianCalendarByLatin">Display Persian calendar by Latin</string>
+    <string name="showScanQrCodeOnPhotoView">Show "Scan QR Code" on the picture viewing interface</string>
     <string name="AddProxyWs">Add WebSocket Relay</string>
     <string name="ProxyInfoWS">WebSocket Relay Settings</string>
     <string name="WsPayload">Payload</string>

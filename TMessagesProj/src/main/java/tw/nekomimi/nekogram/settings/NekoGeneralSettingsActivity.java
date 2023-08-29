@@ -199,6 +199,8 @@ public class NekoGeneralSettingsActivity extends BaseFragment {
     }, null));
     private final AbstractConfigCell usePersianCalendarRow = cellGroup.appendCell(new ConfigCellTextCheck(NekoConfig.usePersianCalendar, LocaleController.getString("UsePersiancalendarInfo")));
     private final AbstractConfigCell displayPersianCalendarByLatinRow = cellGroup.appendCell(new ConfigCellTextCheck(NekoConfig.displayPersianCalendarByLatin));
+    private final AbstractConfigCell showScanQrCodeOnPhotoViewRow = cellGroup.appendCell(new ConfigCellTextCheck(NekoConfig.showScanQrCodeOnPhotoView));
+    
     private final AbstractConfigCell divider7 = cellGroup.appendCell(new ConfigCellDivider());
 
     private final AbstractConfigCell headerAutoDownload = cellGroup.appendCell(new ConfigCellHeader(LocaleController.getString("AutoDownload")));

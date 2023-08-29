@@ -31,6 +31,9 @@ public class NekoConfig {
     private static boolean configLoaded = false;
     private static final ArrayList<ConfigItem> configs = new ArrayList<>();
 
+    // Added by asumi
+    public static ConfigItem showScanQrCodeOnPhotoView = addConfig("showScanQrCodeOnPhotoView", configTypeBool, true);
+
     // Configs
     public static ConfigItem migrate = addConfig("NekoConfigMigrate", configTypeBool, false);
     public static ConfigItem largeAvatarInDrawer = addConfig("AvatarAsBackground", configTypeInt, 0); // 0:TG Default 1:NekoX Default 2:Large Avatar
