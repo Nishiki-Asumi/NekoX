@@ -11868,7 +11868,6 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             }
 
             if (currentAnimation != null) {
-                menuItem.hideSubItem(gallery_menu_save);
                 menuItem.hideSubItem(gallery_menu_share);
                 menuItem.hideSubItem(gallery_menu_scan);
                 if (!newMessageObject.canDeleteMessage(parentChatActivity != null && parentChatActivity.isInScheduleMode(), null)) {
@@ -12297,7 +12296,6 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             shareItem.setVisibility(allowShare ? View.VISIBLE : View.GONE);
 
             if (currentAnimation != null) {
-                menuItem.hideSubItem(gallery_menu_save);
                 if (allowShare) {
                     menuItem.showSubItem(gallery_menu_savegif);
                 } else {
@@ -12435,7 +12433,6 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                     }
                     setDoubleTapEnabled(true);
                 } else {
-                    menuItem.hideSubItem(gallery_menu_save);
                     menuItem.hideSubItem(gallery_menu_scan);
                     setDoubleTapEnabled(false);
                 }
