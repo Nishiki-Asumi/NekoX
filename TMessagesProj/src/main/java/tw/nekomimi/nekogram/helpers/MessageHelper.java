@@ -3,6 +3,7 @@ package tw.nekomimi.nekogram.helpers;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import org.telegram.messenger.BaseController;
 import org.telegram.messenger.MessageObject;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.NotificationCenter;
