@@ -24,8 +24,8 @@ export NDK=$_NDK
 export PROJECT=$(realpath .)
 
 if [ ! $(command -v go) ]; then
-  if [ -d /usr/lib/go-1.16 ]; then
-    export PATH=$PATH:/usr/lib/go-1.16/bin
+  if [ -d /usr/lib/go-1.18 ]; then
+    export PATH=$PATH:/usr/lib/go-1.18/bin
   elif [ -d $HOME/.go ]; then
     export PATH=$PATH:$HOME/.go/bin
   fi

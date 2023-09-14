@@ -2,8 +2,6 @@ name: Debug build
 
 on:
   push:
-    branches:
-      - dev
     paths-ignore:
       - '**.md'
       - '.github/**'
@@ -174,7 +172,16 @@ jobs:
         uses: actions/setup-go@v2
         if: steps.cache.outputs.cache-hit != 'true'
         with:
-          go-version: 1.17
+          go-version: 1.18
+      - name: Install Gomobile
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+            go install golang.org/x/mobile/cmd/gomobile@latest
+            go install golang.org/x/mobile/cmd/gobind@latest
+            gomobile init
+        env:
+            GOPROXY: https://proxy.golang.org,direct
+            GO111MODULE: "on"
       - name: Native Build
         if: steps.cache.outputs.cache-hit != 'true'
         run: ./run libs v2ray
