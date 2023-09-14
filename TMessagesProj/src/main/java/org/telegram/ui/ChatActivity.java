@@ -19108,7 +19108,7 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
     private boolean sponsoredMessagesAdded;
 
     private void addSponsoredMessages(boolean animated) {
-        if (sponsoredMessagesAdded || chatMode != 0 || !ChatObject.isChannel(currentChat) || !forwardEndReached[0] || getUserConfig().isPremium()) {
+        if (sponsoredMessagesAdded || chatMode != 0 || !ChatObject.isChannel(currentChat) || !forwardEndReached[0] || getUserConfig().isPremium() || NekoConfig.hideSponsoredMessage.Bool()) {
             return;
         }
         MessagesController.SponsoredMessagesInfo res = getMessagesController().getSponsoredMessages(dialog_id);
