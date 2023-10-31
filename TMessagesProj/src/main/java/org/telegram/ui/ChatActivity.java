@@ -14652,8 +14652,10 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                 boolean noforwards = getMessagesController().isChatNoForwards(currentChat) || hasSelectedNoforwardsMessage();
                 boolean canForward = chatMode != MODE_SCHEDULED && cantForwardMessagesCount == 0 && !noforwards;
 
-                forwardNoQuoteItem.setVisibility(canForward);
-                saveMessageItem.setVisibility(canForward);
+                if (forwardNoQuoteItem != null)
+                    forwardNoQuoteItem.setVisibility(canForward);
+                if (saveMessageItem != null)
+                    saveMessageItem.setVisibility(canForward);
 
                 if (NekoConfig.showBottomActionsWhenSelecting.Bool())
                     createBottomMessagesActionButtons();
@@ -26264,10 +26266,11 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                                 LocaleController.getString("ImportProxyList", R.string.ImportProxyList),
                                 R.drawable.baseline_security_24, LocaleController.getString("Import", R.string.Import),
                                 false, () -> {
-                                    String status = ProxyListActivity.processProxyListFile(getParentActivity(), finalLocFile1);
-                                    if (!StrUtil.isBlank(status)) {
-                                        presentFragment(new ProxyListActivity(status));
-                                    }
+//                                    String status = ProxyListActivity.processProxyListFile(getParentActivity(), finalLocFile1);
+//                                    if (!StrUtil.isBlank(status)) {
+//                                        presentFragment(new ProxyListActivity(status));
+//                                    }
+                                    Toast.makeText(ChatActivity.this.getContext(), "This function is removed temporarily.", Toast.LENGTH_LONG).show();
                                 });
 
                     } else if (locFile.getName().toLowerCase().endsWith(".nekox-stickers.json")) {
@@ -30636,10 +30639,11 @@ public class ChatActivity extends BaseFragment implements NotificationCenter.Not
                                         LocaleController.getString("ImportProxyList", R.string.ImportProxyList),
                                         R.drawable.baseline_security_24, LocaleController.getString("Import", R.string.Import),
                                         false, () -> {
-                                            String status = ProxyListActivity.processProxyListFile(getParentActivity(), finalLocFile);
-                                            if (!StrUtil.isBlank(status)) {
-                                                presentFragment(new ProxyListActivity(status));
-                                            }
+//                                            String status = ProxyListActivity.processProxyListFile(getParentActivity(), finalLocFile);
+//                                            if (!StrUtil.isBlank(status)) {
+//                                                presentFragment(new ProxyListActivity(status));
+//                                            }
+                                            Toast.makeText(ChatActivity.this.getContext(), "This function is removed temporarily.", Toast.LENGTH_LONG).show();
                                         });
 
                             } else if (message.getDocumentName().toLowerCase().endsWith(".nekox-stickers.json")) {
